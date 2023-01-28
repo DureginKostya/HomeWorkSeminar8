@@ -118,7 +118,7 @@ ColorizeText("Введите размерность матрицы", ConsoleColo
 Console.WriteLine();
 int rowLength = GetDataFromUser("Количество строк: ", "строк");
 int columnLength = GetDataFromUser("Количество столбцов: ", "столбцов");
-int[,] randomMatrix = GenerateMatrix(rowLength, columnLength, 1);
+int[,] randomMatrix = GenerateMatrix(rowLength, columnLength, 10);
 PrintMatrix(randomMatrix);
 int[] sumRow = GetSumElementInRow(randomMatrix);
 ColorizeText("Сумма элементов матрицы в каждой строке", ConsoleColor.DarkBlue);
