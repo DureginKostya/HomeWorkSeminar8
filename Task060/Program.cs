@@ -51,13 +51,24 @@ int[,,] GenerateMatrix(int rows, int columns, int layer, int start, int end)
 }
 void ShowResult(int[,,] matrix)
 {
+    ColorizeText("Слой"+ "\t" + "|Строка" + "\t" + "|", ConsoleColor.DarkYellow);
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        ColorizeText($" Столб #{j}" + "\t", ConsoleColor.DarkYellow);
+    }
+    Console.WriteLine();
     for (int k = 0; k < matrix.GetLength(2); k++)
     {
+        ColorizeText($"#{k}" + "\t", ConsoleColor.DarkYellow);
         for (int i = 0; i < matrix.GetLength(0); i++)
         {
+            if (i == 0)
+                ColorizeText("|" + $"#{i}" + "\t" + "|", ConsoleColor.DarkYellow);
+            else
+                ColorizeText("\t" + "|" + $"#{i}" + "\t" + "|", ConsoleColor.DarkYellow);
             for (int j = 0; j < matrix.GetLength(1); j++)
             {
-                ColorizeText($"{matrix[i,j,k]}({i},{j},{k})" + "\t", ConsoleColor.White);
+                ColorizeText($" {matrix[i,j,k]}({i},{j},{k})" + "\t", ConsoleColor.White);
             }
             Console.WriteLine();
         }  
@@ -73,7 +84,7 @@ Console.WriteLine();
 if (rowLength * columnLength * layerLength <= 90)
 {
     int[,,] matrix3D = GenerateMatrix(rowLength, columnLength, layerLength, 10, 100);
-    ColorizeText("Матрица 3D", ConsoleColor.DarkYellow);
+    ColorizeText("Матрица 3D", ConsoleColor.DarkMagenta);
     Console.WriteLine();
     ShowResult(matrix3D);
 }
